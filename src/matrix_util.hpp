@@ -9,7 +9,7 @@
  * @param rotation_order the rotation order should be either xyz or zyx
  * @return cv::Mat 
  */
-cv::Mat eulerAnglesToRotationMatrix(cv::Vec3f& theta, std::string rotation_order = "zyx");
+cv::Mat eulerAnglesToRotationMatrix(cv::Vec3d& theta, std::string rotation_order = "zyx");
 
 bool isRotationMatrix(cv::Mat &R) {
     cv::Mat Rt;

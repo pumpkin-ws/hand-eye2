@@ -1,6 +1,6 @@
 #include "matrix_util.hpp"
 
-cv::Mat eulerAnglesToRotationMatrix(cv::Vec3f& theta, std::string rotation_order) {
+cv::Mat eulerAnglesToRotationMatrix(cv::Vec3d& theta, std::string rotation_order) {
     using std::sin; using std::cos;
     cv::Mat R_x = (cv::Mat_<double>(3, 3) << 1,      0,               0,
                                              0,      cos(theta[0]),  -sin(theta[0]),

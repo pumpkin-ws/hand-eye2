@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
         std::vector<cv::Point2f> traced_centers;
         std::cout << "Corners for image " << i << std::endl;
         auto start = std::chrono::steady_clock::now();
-        findAndDrawChessBoardCorners(input_imgs[i], traced_centers, cv::Size(6, 9), false);
+        findAndDrawChessBoardCorners(input_imgs[i], traced_centers, cv::Size(9, 6), false);
         auto end = std::chrono::steady_clock::now();
         std::chrono::duration<double, std::milli> dura = end - start;
         std::cout << "Time spent on finding corners for image " << i << " : " << dura.count() << " ms." << std::endl;
@@ -141,7 +141,7 @@ int main(int argc, char** argv) {
     }
 
     cv::Mat R_camera2gripper, t_camera2gripper; 
-    performEIHCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
+    performEIHCalib(gripper2base, target2camera, "zyx", R_camera2gripper, t_camera2gripper);
 
     std::cout << "The camera to gripper rotation matrix is " << std::endl;
     std::cout << R_camera2gripper << std::endl;
@@ -149,7 +149,7 @@ int main(int argc, char** argv) {
     std::cout << t_camera2gripper << std::endl;
 
     // need to write the verification here
-    EIHVerify(gripper2base, target2camera, R_camera2gripper, t_camera2gripper, "xyz");
+    EIHVerify(gripper2base, target2camera, R_camera2gripper, t_camera2gripper, "zyx");
 
     return EXIT_SUCCESS;
 }

@@ -220,6 +220,8 @@ int findBoardPose(
     if (cv::solvePnP(object_points, tracked_centers_map, camera_matrix, dist_coeffs, rvector, tvector) == false) {
         return 1;
     }; // this is the key function
+    std::cout << "The camera matrix is " << std::endl;
+    std::cout << camera_matrix << std::endl;
     std::cout << "R vector: " << std::endl;
     std::cout << rvector << std::endl;
     std::cout << "T vector: " << std::endl;
@@ -249,7 +251,7 @@ int calibrateHandInEye(
     std::vector<cv::Mat> t_gripper2base;
     
     for (int i{0}; i < gripper_poses.size(); i++) {
-        cv::Vec3f euler_angles(gripper_poses[i].rx, gripper_poses[i].ry, gripper_poses[i].rz);
+        cv::Vec3d euler_angles(gripper_poses[i].rx, gripper_poses[i].ry, gripper_poses[i].rz);
         cv::Mat rot = eulerAnglesToRotationMatrix(euler_angles);
         cv::Mat trans = (cv::Mat_<double>(3, 1) << gripper_poses[i].x, gripper_poses[i].y, gripper_poses[i].z);
         R_gripper2base.push_back(rot);
@@ -291,7 +293,7 @@ int performEIHCalib (
 
     for (int i = 0; i < gripper2base_set.size(); i++) {
         // get the rotation matrix and the translation matrix
-        cv::Vec3f rot(
+        cv::Vec3d rot(
             gripper2base_set[i][3],
             gripper2base_set[i][4],
             gripper2base_set[i][5]);
@@ -316,6 +318,22 @@ int performEIHCalib (
         target2camera_trans.push_back(trans_mat);
     }
     
+    std::cout << "The gripper to base rotation is " << std::endl;
+    for (int i = 0; i < gripper2base_rot.size(); i++) {
+        std::cout << gripper2base_rot[i] << std::endl;
+    }
+    std::cout << "The gripper to base translation is " << std::endl;
+    for (int i = 0; i < gripper2base_trans.size(); i++) {
+        std::cout << gripper2base_trans[i] << std::endl;
+    }
+    std::cout << "The target to camera rotation is " << std::endl;
+    for (int i = 0; i < target2camera_rot.size(); i++) {
+        std::cout << target2camera_rot[i] << std::endl;
+    }
+    std::cout << "The target to camera translation is " << std::endl;
+    for (int i = 0; i < target2camera_trans.size(); i++) {
+        std::cout << target2camera_trans[i] << std::endl;
+    }
     cv::calibrateHandEye(
         gripper2base_rot, 
         gripper2base_trans, 
@@ -343,9 +361,8 @@ std::vector<double> EIHVerify(
 
     for (int i = 0; i < gripper2base.size(); i++) {
         cv::Mat trans_mat = (cv::Mat_<double>(3, 1) << gripper2base[i][0], gripper2base[i][1], gripper2base[i][2]);
-        cv::Vec3f rot (gripper2base[i][3], gripper2base[i][4], gripper2base[i][5]);
+        cv::Vec3d rot (gripper2base[i][3], gripper2base[i][4], gripper2base[i][5]);
         cv::Mat rot_mat = eulerAnglesToRotationMatrix(rot, rotation_order);
-        std::cout << rot_mat.channels() << std::endl;
         cv::Mat homo;
         RT2Homo(rot_mat, trans_mat, homo);
         homo_gripper2base.push_back(homo);
@@ -369,17 +386,12 @@ std::vector<double> EIHVerify(
 
     // calculate the pose of the object in world coordinates here
     RT2Homo(R_camera2gripper, t_camera2gripper, homo_camera2gripper);
-    std::cout << "The homogeneous matrix is " << std::endl;
+    std::cout << "The camera to gripper matrix is " << std::endl;
     std::cout << homo_camera2gripper << std::endl;
     /* 
         calculate the target pose in robot world coordinate 
     */
     for (int i = 0; i < homo_gripper2base.size(); i++) {
-        // std::cout << "---------------------------" << std::endl;
-        // std::cout << "homo gripper 2 base" << std::endl;
-        // std::cout << homo_gripper2base[i] << std::endl;
-        // std::cout << "homo target 2 camera" << std::endl;
-        // std::cout << homo_target2camera[i] << std::endl;
         cv::Mat pose = homo_gripper2base[i] * homo_camera2gripper * homo_target2camera[i];
         std::cout << "The target pose for " << i << " is:" << std::endl;
         std::cout << pose << std::endl;
