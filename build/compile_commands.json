@@ -6,6 +6,16 @@
 },
 {
   "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eth_test.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eth_test.cpp"
+},
+{
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eih_test.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eih_test.cpp"
+},
+{
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
   "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/he_calib.dir/handeye-calib.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/handeye-calib.cpp",
   "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/handeye-calib.cpp"
 },
@@ -18,11 +28,6 @@
   "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
   "command": "/bin/g++-9   -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -I/usr/local/include/opencv4  -g   -o CMakeFiles/veri.dir/veri.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/veri.cpp",
   "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/veri.cpp"
-},
-{
-  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
-  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib.dir/chessboard_test.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_test.cpp",
-  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_test.cpp"
 },
 {
   "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src",

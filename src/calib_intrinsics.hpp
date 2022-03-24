@@ -104,7 +104,7 @@ int saveIntrinsicsYAML(
  * @param t_cam2gripper 
  * @return int 
  */
-int performEIHCalib (
+int performEyeHandCalib (
     const std::vector<std::vector<double>>& gripper2base,
     const std::vector<std::vector<double>>& target2camera,
     std::string rotation_order,

@@ -279,7 +279,7 @@ int calibrateHandInEye(
     return 1;
 };
 
-int performEIHCalib (
+int performEyeHandCalib (
     const std::vector<std::vector<double>>& gripper2base_set,
     const std::vector<std::vector<double>>& target2camera_set,
     std::string rotation_order,
@@ -399,3 +399,5 @@ std::vector<double> EIHVerify(
 
     return std::vector<double>();
 };
+
+

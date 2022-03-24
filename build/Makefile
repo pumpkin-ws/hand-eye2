@@ -157,6 +157,32 @@ pop/fast:
 .PHONY : pop/fast
 
 #=============================================================================
+# Target rules for targets named cb_calib_eth
+
+# Build rule for target.
+cb_calib_eth: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cb_calib_eth
+.PHONY : cb_calib_eth
+
+# fast build rule for target.
+cb_calib_eth/fast:
+	$(MAKE) -f CMakeFiles/cb_calib_eth.dir/build.make CMakeFiles/cb_calib_eth.dir/build
+.PHONY : cb_calib_eth/fast
+
+#=============================================================================
+# Target rules for targets named cb_calib_eih
+
+# Build rule for target.
+cb_calib_eih: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cb_calib_eih
+.PHONY : cb_calib_eih
+
+# fast build rule for target.
+cb_calib_eih/fast:
+	$(MAKE) -f CMakeFiles/cb_calib_eih.dir/build.make CMakeFiles/cb_calib_eih.dir/build
+.PHONY : cb_calib_eih/fast
+
+#=============================================================================
 # Target rules for targets named he_calib
 
 # Build rule for target.
@@ -363,19 +389,6 @@ veri: cmake_check_build_system
 veri/fast:
 	$(MAKE) -f CMakeFiles/veri.dir/build.make CMakeFiles/veri.dir/build
 .PHONY : veri/fast
-
-#=============================================================================
-# Target rules for targets named cb_calib
-
-# Build rule for target.
-cb_calib: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 cb_calib
-.PHONY : cb_calib
-
-# fast build rule for target.
-cb_calib/fast:
-	$(MAKE) -f CMakeFiles/cb_calib.dir/build.make CMakeFiles/cb_calib.dir/build
-.PHONY : cb_calib/fast
 
 #=============================================================================
 # Target rules for targets named ExperimentalConfigure
@@ -611,32 +624,59 @@ file_manip/fast:
 	$(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/build
 .PHONY : file_manip/fast
 
-chessboard_test.o: chessboard_test.cpp.o
+chessboard_eih_test.o: chessboard_eih_test.cpp.o
 
-.PHONY : chessboard_test.o
+.PHONY : chessboard_eih_test.o
 
 # target to build an object file
-chessboard_test.cpp.o:
-	$(MAKE) -f CMakeFiles/cb_calib.dir/build.make CMakeFiles/cb_calib.dir/chessboard_test.cpp.o
-.PHONY : chessboard_test.cpp.o
+chessboard_eih_test.cpp.o:
+	$(MAKE) -f CMakeFiles/cb_calib_eih.dir/build.make CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.o
+.PHONY : chessboard_eih_test.cpp.o
 
-chessboard_test.i: chessboard_test.cpp.i
+chessboard_eih_test.i: chessboard_eih_test.cpp.i
 
-.PHONY : chessboard_test.i
+.PHONY : chessboard_eih_test.i
 
 # target to preprocess a source file
-chessboard_test.cpp.i:
-	$(MAKE) -f CMakeFiles/cb_calib.dir/build.make CMakeFiles/cb_calib.dir/chessboard_test.cpp.i
-.PHONY : chessboard_test.cpp.i
+chessboard_eih_test.cpp.i:
+	$(MAKE) -f CMakeFiles/cb_calib_eih.dir/build.make CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.i
+.PHONY : chessboard_eih_test.cpp.i
 
-chessboard_test.s: chessboard_test.cpp.s
+chessboard_eih_test.s: chessboard_eih_test.cpp.s
 
-.PHONY : chessboard_test.s
+.PHONY : chessboard_eih_test.s
 
 # target to generate assembly for a file
-chessboard_test.cpp.s:
-	$(MAKE) -f CMakeFiles/cb_calib.dir/build.make CMakeFiles/cb_calib.dir/chessboard_test.cpp.s
-.PHONY : chessboard_test.cpp.s
+chessboard_eih_test.cpp.s:
+	$(MAKE) -f CMakeFiles/cb_calib_eih.dir/build.make CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.s
+.PHONY : chessboard_eih_test.cpp.s
+
+chessboard_eth_test.o: chessboard_eth_test.cpp.o
+
+.PHONY : chessboard_eth_test.o
+
+# target to build an object file
+chessboard_eth_test.cpp.o:
+	$(MAKE) -f CMakeFiles/cb_calib_eth.dir/build.make CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.o
+.PHONY : chessboard_eth_test.cpp.o
+
+chessboard_eth_test.i: chessboard_eth_test.cpp.i
+
+.PHONY : chessboard_eth_test.i
+
+# target to preprocess a source file
+chessboard_eth_test.cpp.i:
+	$(MAKE) -f CMakeFiles/cb_calib_eth.dir/build.make CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.i
+.PHONY : chessboard_eth_test.cpp.i
+
+chessboard_eth_test.s: chessboard_eth_test.cpp.s
+
+.PHONY : chessboard_eth_test.s
+
+# target to generate assembly for a file
+chessboard_eth_test.cpp.s:
+	$(MAKE) -f CMakeFiles/cb_calib_eth.dir/build.make CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.s
+.PHONY : chessboard_eth_test.cpp.s
 
 handeye-calib.o: handeye-calib.cpp.o
 
@@ -755,6 +795,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... pop"
+	@echo "... cb_calib_eth"
+	@echo "... cb_calib_eih"
 	@echo "... he_calib"
 	@echo "... edit_cache"
 	@echo "... NightlyMemCheck"
@@ -773,7 +815,6 @@ help:
 	@echo "... Experimental"
 	@echo "... ContinuousCoverage"
 	@echo "... veri"
-	@echo "... cb_calib"
 	@echo "... ExperimentalConfigure"
 	@echo "... Continuous"
 	@echo "... Nightly"
@@ -793,9 +834,12 @@ help:
 	@echo "... matrix_util"
 	@echo "... calib_intrinsic"
 	@echo "... file_manip"
-	@echo "... chessboard_test.o"
-	@echo "... chessboard_test.i"
-	@echo "... chessboard_test.s"
+	@echo "... chessboard_eih_test.o"
+	@echo "... chessboard_eih_test.i"
+	@echo "... chessboard_eih_test.s"
+	@echo "... chessboard_eth_test.o"
+	@echo "... chessboard_eth_test.i"
+	@echo "... chessboard_eth_test.s"
 	@echo "... handeye-calib.o"
 	@echo "... handeye-calib.i"
 	@echo "... handeye-calib.s"

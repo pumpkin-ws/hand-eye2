@@ -22,8 +22,11 @@ target_link_libraries(hand-eye PUBLIC ${OpenCV_LIBS} ${Boost_LIBRARIES} file_man
 add_executable(he_calib handeye-calib.cpp)
 target_link_libraries(he_calib PUBLIC ${OpenCV_LIBS} ${Boost_LIBRARIES} file_manip calib_intrinsic)
 
-add_executable(cb_calib chessboard_test.cpp)
-target_link_libraries(cb_calib PUBLIC ${OpenCV_LIBS} ${Boost_LIBRARIES} file_manip calib_intrinsic)
+add_executable(cb_calib_eih chessboard_eih_test.cpp)
+target_link_libraries(cb_calib_eih PUBLIC ${OpenCV_LIBS} ${Boost_LIBRARIES} file_manip calib_intrinsic)
+
+add_executable(cb_calib_eth chessboard_eth_test.cpp)
+target_link_libraries(cb_calib_eth PUBLIC ${OpenCV_LIBS} ${Boost_LIBRARIES} file_manip calib_intrinsic)
 
 add_executable(veri veri.cpp)
 

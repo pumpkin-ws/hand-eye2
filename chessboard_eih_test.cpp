@@ -141,7 +141,7 @@ int main(int argc, char** argv) {
     }
 
     cv::Mat R_camera2gripper, t_camera2gripper; 
-    performEIHCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
+    performEyeHandCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
 
     std::cout << "The camera to gripper rotation matrix is " << std::endl;
     std::cout << R_camera2gripper << std::endl;
