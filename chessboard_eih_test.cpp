@@ -82,18 +82,9 @@ int main(int argc, char** argv) {
             std::vector<double>{t[0], t[1], t[2], r[0], r[1], r[2]}
         );
     }
-    printf("The translation vector from camera calibration is: ");
-    for (int i = 0; i < tvecs.size(); i++) {
-        std::cout << tvecs[i] << std::endl;
-    }
-    printf("The rotation vector from camera calibration is: \n");
-    for (int i = 0; i < rvecs.size(); i++) {
-        std::cout << rvecs[i] << std::endl;
-    }
 
     /* Load in the robot poses here */
-
-    std::ifstream f("./data/eih/location.txt");
+    std::ifstream f("./data/eth/location.txt");
     std::string cur_line;
     
     auto str2pose = [](std::string line)mutable->RobotPose {

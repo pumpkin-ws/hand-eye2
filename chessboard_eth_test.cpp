@@ -40,14 +40,79 @@ int main(int argc, char** argv) {
 
     /* Load in the camera intrinsics */
     cv::FileStorage fs("./data/eih/intrinsics.yml", cv::FileStorage::READ);
-    cv::Mat intr, dist;
-    fs["Intrinsic"] >> intr;
-    fs["Distortion"] >> dist;
-    std::cout << "The read in camera intrinsics are \n" << intr << std::endl;
-    std::cout << "The read in distortion coeffs are \n" << dist << std::endl;
+    cv::Mat intrinsics, distortion;
+    fs["Intrinsic"] >> intrinsics;
+    fs["Distortion"] >> distortion;
+    std::cout << "The read in camera intrinsics are \n" << intrinsics << std::endl;
+    std::cout << "The read in distortion coeffs are \n" << distortion << std::endl;
     fs.release();
 
+    /* Find the poses of the baord */
+    std::vector<std::vector<double>> target2camera;
+    
+    for (int i = 0; i < centers_group.size(); i++) {
+        std::cout << "Pose for calibration image " << i << std::endl;
+        cv::Mat board_rvec, board_tvec;
+        findBoardPose(cv::Size(9, 6), 18, centers_group[i], intrinsics, distortion, board_rvec, board_tvec);
+        std::cout << board_rvec.size() << std::endl;
+        std::cout << board_tvec.size() << std::endl;
+        cv::Vec3f r = board_rvec;
+        cv::Vec3f t = board_tvec;
+        target2camera.push_back(
+            std::vector<double>{t[0], t[1], t[2], r[0], r[1], r[2]}
+        );
+    }
+
     /* read in robot poses */
+
+    std::ifstream f("./data/eth/location.txt");
+    std::string cur_line;
+    
+    auto str2pose = [](std::string line)mutable->RobotPose {
+        RobotPose rp;
+        double x = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());
+        double y = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());
+        double z = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double rx = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double ry = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double rz = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        
+        rp.x = x;
+        rp.y = y;
+        rp.z = z;
+        rp.rx = rx;
+        rp.ry = ry;
+        rp.rz = rz;
+
+        return rp;
+    };
+    std::vector<RobotPose> poses;
+    int count = 0;
+    while (getline(f, cur_line)) {
+        if (cur_line[0] != '\0') {
+            RobotPose rp = str2pose(cur_line);
+            poses.push_back(rp);
+            count++;
+            std::cout << "Current pose " << count << ": " << std::endl;
+            printf("x=%f, y=%f, z=%f, rx=%f, ry=%f, rz=%f.\n", rp.x, rp.y, rp.z, rp.rx, rp.ry, rp.rz);
+        }
+    }
+
+    std::vector<std::vector<double>> gripper2base;
+    for (int i = 0; i < poses.size(); i++) {
+        gripper2base.push_back(
+            std::vector<double>{
+                poses[i].x, poses[i].y, poses[i].z, poses[i].rx, poses[i].ry, poses[i].rz
+            }
+        );
+    }
+    
 
 
     return EXIT_SUCCESS;
