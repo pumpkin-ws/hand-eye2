@@ -3,7 +3,9 @@
 #include "opencv2/opencv.hpp"
 
 /**
- * @brief For aubo robot, the rotation order is zyx; for ur, the rotation order is xyz
+ * @brief For aubo robot, the rotation order is zyx; for ur, the rotation order is xyz. The rotation should be roll,
+ * pitch, yaw rotations following the Tait-Bryan rotations, and Tait-Bryan rotation is an intrinsic rotation, meaning the 
+ * 
  * 
  * @param theta the euler angle
  * @param rotation_order the rotation order should be either xyz or zyx

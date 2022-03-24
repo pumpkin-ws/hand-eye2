@@ -141,7 +141,7 @@ int main(int argc, char** argv) {
     }
 
     cv::Mat R_camera2gripper, t_camera2gripper; 
-    performEIHCalib(gripper2base, target2camera, "zyx", R_camera2gripper, t_camera2gripper);
+    performEIHCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
 
     std::cout << "The camera to gripper rotation matrix is " << std::endl;
     std::cout << R_camera2gripper << std::endl;
@@ -149,7 +149,7 @@ int main(int argc, char** argv) {
     std::cout << t_camera2gripper << std::endl;
 
     // need to write the verification here
-    EIHVerify(gripper2base, target2camera, R_camera2gripper, t_camera2gripper, "zyx");
+    EIHVerify(gripper2base, target2camera, R_camera2gripper, t_camera2gripper, "xyz");
 
     return EXIT_SUCCESS;
 }

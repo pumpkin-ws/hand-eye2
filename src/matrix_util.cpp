@@ -14,9 +14,9 @@ cv::Mat eulerAnglesToRotationMatrix(cv::Vec3d& theta, std::string rotation_order
                                              sin(theta[2]),    cos(theta[2]),   0,
                                              0,                0,               1);
     if (rotation_order == "zyx") {
-        return R_z * R_y * R_x;
-    } else if (rotation_order == "xyz") {
         return R_x * R_y * R_z;
+    } else if (rotation_order == "xyz") {
+        return R_z * R_y * R_x;
     } else {
         fprintf(stderr, "wrong rotation order specified, should be xyz or zyx.\n");
         return cv::Mat();
