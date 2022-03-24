@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ws/spark-projects/fruit_picker_2022/test/hand-eye
+CMAKE_SOURCE_DIR = /home/ws/spark/hand-eye2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build
+CMAKE_BINARY_DIR = /home/ws/spark/hand-eye2/build
 
 # Utility rule file for NightlyBuild.
 
@@ -71,6 +71,6 @@ CMakeFiles/NightlyBuild.dir/clean:
 .PHONY : CMakeFiles/NightlyBuild.dir/clean
 
 CMakeFiles/NightlyBuild.dir/depend:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ws/spark-projects/fruit_picker_2022/test/hand-eye /home/ws/spark-projects/fruit_picker_2022/test/hand-eye /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/CMakeFiles/NightlyBuild.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ws/spark/hand-eye2/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ws/spark/hand-eye2 /home/ws/spark/hand-eye2 /home/ws/spark/hand-eye2/build /home/ws/spark/hand-eye2/build /home/ws/spark/hand-eye2/build/CMakeFiles/NightlyBuild.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/NightlyBuild.dir/depend
 

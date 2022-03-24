@@ -48,18 +48,18 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ws/spark-projects/fruit_picker_2022/test/hand-eye
+CMAKE_SOURCE_DIR = /home/ws/spark/hand-eye2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build
+CMAKE_BINARY_DIR = /home/ws/spark/hand-eye2/build
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -81,7 +81,7 @@ test/fast: test
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/CPackSourceConfig.cmake
+	cd /home/ws/spark/hand-eye2/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/ws/spark/hand-eye2/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -103,7 +103,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/ws/spark/hand-eye2/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -113,14 +113,14 @@ package/fast: package
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/CMakeFiles /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src/CMakeFiles/progress.marks
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/CMakeFiles 0
+	cd /home/ws/spark/hand-eye2/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/ws/spark/hand-eye2/build/CMakeFiles /home/ws/spark/hand-eye2/build/src/CMakeFiles/progress.marks
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ws/spark/hand-eye2/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -130,22 +130,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/ws/spark/hand-eye2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/matrix_util.dir/rule:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/matrix_util.dir/rule
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/matrix_util.dir/rule
 .PHONY : src/CMakeFiles/matrix_util.dir/rule
 
 # Convenience name for target.
@@ -155,12 +155,12 @@ matrix_util: src/CMakeFiles/matrix_util.dir/rule
 
 # fast build rule for target.
 matrix_util/fast:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/build
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/build
 .PHONY : matrix_util/fast
 
 # Convenience name for target.
 src/CMakeFiles/calib_intrinsic.dir/rule:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/calib_intrinsic.dir/rule
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/calib_intrinsic.dir/rule
 .PHONY : src/CMakeFiles/calib_intrinsic.dir/rule
 
 # Convenience name for target.
@@ -170,12 +170,12 @@ calib_intrinsic: src/CMakeFiles/calib_intrinsic.dir/rule
 
 # fast build rule for target.
 calib_intrinsic/fast:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/build
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/build
 .PHONY : calib_intrinsic/fast
 
 # Convenience name for target.
 src/CMakeFiles/file_manip.dir/rule:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/file_manip.dir/rule
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f CMakeFiles/Makefile2 src/CMakeFiles/file_manip.dir/rule
 .PHONY : src/CMakeFiles/file_manip.dir/rule
 
 # Convenience name for target.
@@ -185,7 +185,7 @@ file_manip: src/CMakeFiles/file_manip.dir/rule
 
 # fast build rule for target.
 file_manip/fast:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/build
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/build
 .PHONY : file_manip/fast
 
 calib_intrinsics.o: calib_intrinsics.cpp.o
@@ -194,7 +194,7 @@ calib_intrinsics.o: calib_intrinsics.cpp.o
 
 # target to build an object file
 calib_intrinsics.cpp.o:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.o
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.o
 .PHONY : calib_intrinsics.cpp.o
 
 calib_intrinsics.i: calib_intrinsics.cpp.i
@@ -203,7 +203,7 @@ calib_intrinsics.i: calib_intrinsics.cpp.i
 
 # target to preprocess a source file
 calib_intrinsics.cpp.i:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.i
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.i
 .PHONY : calib_intrinsics.cpp.i
 
 calib_intrinsics.s: calib_intrinsics.cpp.s
@@ -212,7 +212,7 @@ calib_intrinsics.s: calib_intrinsics.cpp.s
 
 # target to generate assembly for a file
 calib_intrinsics.cpp.s:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.s
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/calib_intrinsic.dir/build.make src/CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.s
 .PHONY : calib_intrinsics.cpp.s
 
 file_manip.o: file_manip.cpp.o
@@ -221,7 +221,7 @@ file_manip.o: file_manip.cpp.o
 
 # target to build an object file
 file_manip.cpp.o:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.o
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.o
 .PHONY : file_manip.cpp.o
 
 file_manip.i: file_manip.cpp.i
@@ -230,7 +230,7 @@ file_manip.i: file_manip.cpp.i
 
 # target to preprocess a source file
 file_manip.cpp.i:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.i
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.i
 .PHONY : file_manip.cpp.i
 
 file_manip.s: file_manip.cpp.s
@@ -239,7 +239,7 @@ file_manip.s: file_manip.cpp.s
 
 # target to generate assembly for a file
 file_manip.cpp.s:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.s
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/file_manip.dir/build.make src/CMakeFiles/file_manip.dir/file_manip.cpp.s
 .PHONY : file_manip.cpp.s
 
 matrix_util.o: matrix_util.cpp.o
@@ -248,7 +248,7 @@ matrix_util.o: matrix_util.cpp.o
 
 # target to build an object file
 matrix_util.cpp.o:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o
 .PHONY : matrix_util.cpp.o
 
 matrix_util.i: matrix_util.cpp.i
@@ -257,7 +257,7 @@ matrix_util.i: matrix_util.cpp.i
 
 # target to preprocess a source file
 matrix_util.cpp.i:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.i
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.i
 .PHONY : matrix_util.cpp.i
 
 matrix_util.s: matrix_util.cpp.s
@@ -266,7 +266,7 @@ matrix_util.s: matrix_util.cpp.s
 
 # target to generate assembly for a file
 matrix_util.cpp.s:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.s
+	cd /home/ws/spark/hand-eye2/build && $(MAKE) -f src/CMakeFiles/matrix_util.dir/build.make src/CMakeFiles/matrix_util.dir/matrix_util.cpp.s
 .PHONY : matrix_util.cpp.s
 
 # Help Target
@@ -303,6 +303,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/ws/spark/hand-eye2/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

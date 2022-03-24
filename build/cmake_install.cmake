@@ -1,4 +1,4 @@
-# Install script for directory: /home/ws/spark-projects/fruit_picker_2022/test/hand-eye
+# Install script for directory: /home/ws/spark/hand-eye2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src/cmake_install.cmake")
+  include("/home/ws/spark/hand-eye2/build/src/cmake_install.cmake")
 
 endif()
 
@@ -51,5 +51,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/ws/spark/hand-eye2/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

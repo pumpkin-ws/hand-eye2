@@ -4,17 +4,17 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/ws/spark-projects/fruit_picker_2022/test/hand-eye
-BuildDirectory: /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build
+SourceDirectory: /home/ws/spark/hand-eye2
+BuildDirectory: /home/ws/spark/hand-eye2/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: ws
+Site: ws-HP-ENVY-15-Notebook-PC
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
-BuildName: Linux-g++-9
+BuildName: Linux-x86_64-linux-gnu-g++-9
 
 # Subprojects
 LabelsForSubprojects: 
@@ -26,7 +26,7 @@ SubmitURL: http://
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye"
+ConfigureCommand: "/usr/bin/cmake" "/home/ws/spark/hand-eye2"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -39,7 +39,7 @@ CVSCommand: CVSCOMMAND-NOTFOUND
 CVSUpdateOptions: -d -A -P
 
 # Subversion options
-SVNCommand: SVNCOMMAND-NOTFOUND
+SVNCommand: /usr/bin/svn
 SVNOptions: 
 SVNUpdateOptions: 
 
@@ -62,7 +62,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /bin/g++-9
+Compiler: /bin/x86_64-linux-gnu-g++-9
 CompilerVersion: 9.4.0
 
 # Dynamic analysis (MemCheck)
@@ -71,7 +71,7 @@ ValgrindCommand:
 ValgrindCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: /usr/bin/valgrind
+MemoryCheckCommand: MEMORYCHECK_COMMAND-NOTFOUND
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 
