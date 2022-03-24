@@ -154,8 +154,15 @@ int calibrateIntrinsics(
             std::vector<cv::Mat> rvecs, tvecs;
             
             double rms = cv::calibrateCamera(object_lists, corner_lists, image_size, camera_matrix, dist_coeff, rvecs, tvecs);
+            printf("The rotation vector of each target is : \n");
             for (int i = 0; i < rvecs.size(); i++) {
+                printf("The rotation vector of group %d:\n", i);
                 std::cout << rvecs[i] << std::endl;
+            }
+            printf("The translation vector of each target is : \n");
+            for (int i = 0; i < tvecs.size(); i++) {
+                printf("The translation vector of group %d:\n", i);
+                std::cout << tvecs[i] << std::endl;
             }
             camera_mat = camera_matrix.clone();
             distortion = dist_coeff.clone();
