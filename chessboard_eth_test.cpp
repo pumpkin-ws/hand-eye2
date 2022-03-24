@@ -47,7 +47,7 @@ int main(int argc, char** argv) {
     std::cout << "The read in distortion coeffs are \n" << dist << std::endl;
     fs.release();
 
-    /* read in robot poses */
+    /* load in robot poses */
 
 
     return EXIT_SUCCESS;
