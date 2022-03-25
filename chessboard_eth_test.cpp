@@ -44,6 +44,7 @@ int main(int argc, char** argv) {
     fs["Intrinsic"] >> intrinsics;
     fs["Distortion"] >> distortion;
     std::cout << "The read in camera intrinsics are \n" << intrinsics << std::endl;
+<<<<<<< HEAD
     std::cout << "The read in distortion coeffs are \n" << distortion << std::endl;
     fs.release();
 
@@ -64,6 +65,67 @@ int main(int argc, char** argv) {
     }
 
     /* read in robot poses */
+=======
+    std::cout << "The read in distortion coeffs are \n" << distortion` << std::endl;
+    fs.release();
+
+    /* Find the chess board poses  */
+    std::vector<std::vector<double>> target2camera;
+    
+    for (int i = 0; i < centers_group.size(); i++) {
+        cv::Mat board_rvec, board_tvec;
+        findBoardPose(cv::Size(9, 6), 18, centers_group[i], )
+    }
+    /* load in robot poses */
+
+    std::ifstream f("./data/eih/location.txt");
+    std::string cur_line;
+    
+    auto str2pose = [](std::string line)mutable->RobotPose {
+        RobotPose rp;
+        double x = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());
+        double y = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());
+        double z = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double rx = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double ry = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        double rz = atof(line.substr(0, line.find_first_of(',')).c_str());
+        line = line.substr(line.find_first_of(',') + 1, line.size());   
+        
+        rp.x = x;
+        rp.y = y;
+        rp.z = z;
+        rp.rx = rx;
+        rp.ry = ry;
+        rp.rz = rz;
+
+        return rp;
+    };
+    std::vector<RobotPose> poses;
+    int count = 0;
+    while (getline(f, cur_line)) {
+        if (cur_line[0] != '\0') {
+            RobotPose rp = str2pose(cur_line);
+            poses.push_back(rp);
+            count++;
+            std::cout << "Current pose " << count << ": " << std::endl;
+            printf("x=%f, y=%f, z=%f, rx=%f, ry=%f, rz=%f.\n", rp.x, rp.y, rp.z, rp.rx, rp.ry, rp.rz);
+        }
+    }
+    std::vector<std::vector<double>> gripper2base;
+    for (int i = 0; i < poses.size(); i++) {
+        gripper2base.push_back(
+            std::vector<double>{
+                poses[i].x, poses[i].y, poses[i].z, poses[i].rx, poses[i].ry, poses[i].rz
+            }
+        );
+    }
+
+>>>>>>> f5fb5ae987d29115d62145231373ac5e5e138085
 
     std::ifstream f("./data/eth/location.txt");
     std::string cur_line;

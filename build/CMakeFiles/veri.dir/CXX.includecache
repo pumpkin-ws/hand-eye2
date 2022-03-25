@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/veri.cpp
+/home/ws/spark/hand-eye2/veri.cpp
 iostream
 -
 cstdlib
