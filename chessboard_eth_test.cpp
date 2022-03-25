@@ -137,7 +137,7 @@ int main(int argc, char** argv) {
     std::cout << t_camera2base << std::endl;
 
     ETHVerify(gripper2base, target2camera, R_camera2base, t_camera2base, "xyz");
-
+    printf("This program is pulled from source successfully. ")
 
     return EXIT_SUCCESS;
 
