@@ -3,4 +3,6 @@ This repo has the eye-in-hand and eye-to-hand calibrations.
 The robotic rpy should be intrinsic rotations represented by Tait-Bryan rotations. 
 For rotation in the xyz direction, the composition of rotations in the fixed axes is a left-multiplication.
 
-Get the amount of items from 
+2022-03-25
+The eye to hand calibration is verified. Maybe the image quality is poor to have a good calibration result. 
+Clean up the output and introduce glog for debugging and error logging.

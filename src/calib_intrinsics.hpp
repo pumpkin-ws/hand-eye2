@@ -115,12 +115,11 @@ int performEIHCalib (
 /**
  * @brief calculate the variation from mean value for each target pose
  * 
- * @param gripper2base : the rotation of gripper pose is in rpy
- * @param target2camera : the rotation of target pose is in rotation vector
- * @param R_camera2gripper : the rotation part of camera to gripper
- * @param t_camera2gripper : the translation part camera to gripper
- * @return std::vector<double> : the difference of each pose from the average distance. 
- * The target should not move, so the differences should not be too large
+ * @param gripper2base the rotation of gripper pose is in rpy
+ * @param target2camera the rotation of target pose is in rotation vector
+ * @param R_camera2gripper the rotation part of camera to gripper
+ * @param t_camera2gripper the translation part camera to gripper
+ * @return std::vector<double> the distance from each target to base
  */
 std::vector<double> EIHVerify(
     const std::vector<std::vector<double>>& gripper2base,
@@ -141,10 +140,11 @@ int performETHCalib(
 /**
  * @brief The relation between target and flange(or any tool) should remain constant.
  * 
+ * @param gripper2base 
  * @param target2camera 
  * @param R_camera2gripper 
  * @param t_camera2gripper 
- * @return std::vector<double> 
+ * @return std::vector<double> the distances from each target to gripper
  */
 std::vector<double> ETHVerify(
     const std::vector<std::vector<double>>& gripper2base,

@@ -154,16 +154,6 @@ int calibrateIntrinsics(
             std::vector<cv::Mat> rvecs, tvecs;
             
             double rms = cv::calibrateCamera(object_lists, corner_lists, image_size, camera_matrix, dist_coeff, rvecs, tvecs);
-            printf("The rotation vector of each target is : \n");
-            for (int i = 0; i < rvecs.size(); i++) {
-                printf("The rotation vector of group %d:\n", i);
-                std::cout << rvecs[i] << std::endl;
-            }
-            printf("The translation vector of each target is : \n");
-            for (int i = 0; i < tvecs.size(); i++) {
-                printf("The translation vector of group %d:\n", i);
-                std::cout << tvecs[i] << std::endl;
-            }
             camera_mat = camera_matrix.clone();
             distortion = dist_coeff.clone();
             rvecs_out.clear();
@@ -219,13 +209,7 @@ int findBoardPose(
     }
     if (cv::solvePnP(object_points, tracked_centers_map, camera_matrix, dist_coeffs, rvector, tvector) == false) {
         return 1;
-    }; // this is the key function
-    std::cout << "The camera matrix is " << std::endl;
-    std::cout << camera_matrix << std::endl;
-    std::cout << "R vector: " << std::endl;
-    std::cout << rvector << std::endl;
-    std::cout << "T vector: " << std::endl;
-    std::cout << tvector << std::endl;
+    };
     rvec = rvector.clone();
     tvec = tvector.clone();
     return 0;
@@ -317,23 +301,6 @@ int performEIHCalib (
         target2camera_rot.push_back(rot_mat);
         target2camera_trans.push_back(trans_mat);
     }
-    
-    std::cout << "The gripper to base rotation is " << std::endl;
-    for (int i = 0; i < gripper2base_rot.size(); i++) {
-        std::cout << gripper2base_rot[i] << std::endl;
-    }
-    std::cout << "The gripper to base translation is " << std::endl;
-    for (int i = 0; i < gripper2base_trans.size(); i++) {
-        std::cout << gripper2base_trans[i] << std::endl;
-    }
-    std::cout << "The target to camera rotation is " << std::endl;
-    for (int i = 0; i < target2camera_rot.size(); i++) {
-        std::cout << target2camera_rot[i] << std::endl;
-    }
-    std::cout << "The target to camera translation is " << std::endl;
-    for (int i = 0; i < target2camera_trans.size(); i++) {
-        std::cout << target2camera_trans[i] << std::endl;
-    }
     cv::calibrateHandEye(
         gripper2base_rot, 
         gripper2base_trans, 
@@ -366,8 +333,6 @@ std::vector<double> EIHVerify(
         cv::Mat homo;
         RT2Homo(rot_mat, trans_mat, homo);
         homo_gripper2base.push_back(homo);
-        std::cout << "gripper 2 base " << i << std::endl;
-        std::cout << homo << std::endl;
     }
 
     for (int i = 0; i < target2camera.size(); i++) {
@@ -379,18 +344,12 @@ std::vector<double> EIHVerify(
         RT2Homo(rot_mat, trans_mat, homo);
         homo_target2camera.push_back(homo);
     }
-
-    // calculate the pose of the object in world coordinates here
-    RT2Homo(R_camera2gripper, t_camera2gripper, homo_camera2gripper);
-    std::cout << "The camera to gripper matrix is " << std::endl;
-    std::cout << homo_camera2gripper << std::endl;
     /* 
         calculate the target pose in robot world coordinate 
     */
+    RT2Homo(R_camera2gripper, t_camera2gripper, homo_camera2gripper);
     for (int i = 0; i < homo_gripper2base.size(); i++) {
         cv::Mat pose = homo_gripper2base[i] * homo_camera2gripper * homo_target2camera[i];
-        std::cout << "The target pose for " << i << " is:" << std::endl;
-        std::cout << pose << std::endl;
     }
 
     return std::vector<double>();
@@ -490,7 +449,7 @@ std::vector<double> ETHVerify(
         RT2Homo(rot_mat, trans_mat, homo);
         homo_target2camera.push_back(homo);
     }
-    
+
     for (int i = 0; i < target2camera.size(); i++) {
         printf("-------------%d------------\n", i);
         cv::Mat pose = homo_base2gripper[i] * homo_camera2gripper * homo_target2camera[i];
