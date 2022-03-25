@@ -84,7 +84,7 @@ int main(int argc, char** argv) {
     }
 
     /* Load in the robot poses here */
-    std::ifstream f("./data/eth/location.txt");
+    std::ifstream f("./data/eih/location.txt");
     std::string cur_line;
     
     auto str2pose = [](std::string line)mutable->RobotPose {
@@ -132,7 +132,7 @@ int main(int argc, char** argv) {
     }
 
     cv::Mat R_camera2gripper, t_camera2gripper; 
-    performEyeHandCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
+    performEIHCalib(gripper2base, target2camera, "xyz", R_camera2gripper, t_camera2gripper);
 
     std::cout << "The camera to gripper rotation matrix is " << std::endl;
     std::cout << R_camera2gripper << std::endl;

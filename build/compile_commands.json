@@ -1,47 +1,47 @@
 [
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/ws/spark/hand-eye2/src -I/usr/local/include/opencv4  -g   -o CMakeFiles/pop.dir/pop_ideas.cpp.o -c /home/ws/spark/hand-eye2/pop_ideas.cpp",
-  "file": "/home/ws/spark/hand-eye2/pop_ideas.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9   -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -I/usr/local/include/opencv4  -g   -o CMakeFiles/pop.dir/pop_ideas.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/pop_ideas.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/pop_ideas.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.o -c /home/ws/spark/hand-eye2/chessboard_eth_test.cpp",
-  "file": "/home/ws/spark/hand-eye2/chessboard_eth_test.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eth.dir/chessboard_eth_test.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eth_test.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eth_test.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.o -c /home/ws/spark/hand-eye2/chessboard_eih_test.cpp",
-  "file": "/home/ws/spark/hand-eye2/chessboard_eih_test.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/cb_calib_eih.dir/chessboard_eih_test.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eih_test.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/chessboard_eih_test.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/he_calib.dir/handeye-calib.cpp.o -c /home/ws/spark/hand-eye2/handeye-calib.cpp",
-  "file": "/home/ws/spark/hand-eye2/handeye-calib.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/he_calib.dir/handeye-calib.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/handeye-calib.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/handeye-calib.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/hand-eye.dir/main.cpp.o -c /home/ws/spark/hand-eye2/main.cpp",
-  "file": "/home/ws/spark/hand-eye2/main.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g   -o CMakeFiles/hand-eye.dir/main.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/main.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/main.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build",
-  "command": "/bin/x86_64-linux-gnu-g++-9   -I/home/ws/spark/hand-eye2/src -I/usr/local/include/opencv4  -g   -o CMakeFiles/veri.dir/veri.cpp.o -c /home/ws/spark/hand-eye2/veri.cpp",
-  "file": "/home/ws/spark/hand-eye2/veri.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build",
+  "command": "/bin/g++-9   -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -I/usr/local/include/opencv4  -g   -o CMakeFiles/veri.dir/veri.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/veri.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/veri.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dmatrix_util_EXPORTS -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/matrix_util.dir/matrix_util.cpp.o -c /home/ws/spark/hand-eye2/src/matrix_util.cpp",
-  "file": "/home/ws/spark/hand-eye2/src/matrix_util.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src",
+  "command": "/bin/g++-9  -Dmatrix_util_EXPORTS -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/matrix_util.dir/matrix_util.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/matrix_util.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/matrix_util.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -Dcalib_intrinsic_EXPORTS -I/home/ws/spark/hand-eye2/src -isystem /usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.o -c /home/ws/spark/hand-eye2/src/calib_intrinsics.cpp",
-  "file": "/home/ws/spark/hand-eye2/src/calib_intrinsics.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src",
+  "command": "/bin/g++-9  -Dcalib_intrinsic_EXPORTS -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -isystem /usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/calib_intrinsic.dir/calib_intrinsics.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/calib_intrinsics.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/calib_intrinsics.cpp"
 },
 {
-  "directory": "/home/ws/spark/hand-eye2/build/src",
-  "command": "/bin/x86_64-linux-gnu-g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -Dfile_manip_EXPORTS -I/home/ws/spark/hand-eye2/src -I/usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/file_manip.dir/file_manip.cpp.o -c /home/ws/spark/hand-eye2/src/file_manip.cpp",
-  "file": "/home/ws/spark/hand-eye2/src/file_manip.cpp"
+  "directory": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/build/src",
+  "command": "/bin/g++-9  -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -Dfile_manip_EXPORTS -I/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src -I/usr/local/include/opencv4  -g -fPIC   -o CMakeFiles/file_manip.dir/file_manip.cpp.o -c /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/file_manip.cpp",
+  "file": "/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/file_manip.cpp"
 }
 ]

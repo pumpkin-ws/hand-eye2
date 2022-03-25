@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/ws/spark/hand-eye2/src/file_manip.cpp
+/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/file_manip.cpp
 file_manip.hpp
-/home/ws/spark/hand-eye2/src/file_manip.hpp
+/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/file_manip.hpp
 
-/home/ws/spark/hand-eye2/src/file_manip.hpp
+/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/file_manip.hpp
 string
 -
 iostream
@@ -18,9 +18,9 @@ iostream
 vector
 -
 boost/filesystem.hpp
-/home/ws/spark/hand-eye2/src/boost/filesystem.hpp
+/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/boost/filesystem.hpp
 unistd.h
-/home/ws/spark/hand-eye2/src/unistd.h
+/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src/unistd.h
 limits.h
 -
 

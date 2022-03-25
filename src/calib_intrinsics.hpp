@@ -104,7 +104,7 @@ int saveIntrinsicsYAML(
  * @param t_cam2gripper 
  * @return int 
  */
-int performEyeHandCalib (
+int performEIHCalib (
     const std::vector<std::vector<double>>& gripper2base,
     const std::vector<std::vector<double>>& target2camera,
     std::string rotation_order,
@@ -129,5 +129,30 @@ std::vector<double> EIHVerify(
     const cv::Mat& t_camera2gripper,
     std::string rotation_order
 );
+
+int performETHCalib(
+    const std::vector<std::vector<double>>& gripper2base_set,
+    const std::vector<std::vector<double>>& target2camera_set,
+    std::string rotation_order,
+    cv::Mat& R_cam2gripper,
+    cv::Mat& t_cam2gripper
+);
+
+/**
+ * @brief The relation between target and flange(or any tool) should remain constant.
+ * 
+ * @param target2camera 
+ * @param R_camera2gripper 
+ * @param t_camera2gripper 
+ * @return std::vector<double> 
+ */
+std::vector<double> ETHVerify(
+    const std::vector<std::vector<double>>& gripper2base,
+    const std::vector<std::vector<double>>& target2camera,
+    const cv::Mat& R_camera2gripper,
+    const cv::Mat& t_camera2gripper,
+    std::string rotation_order
+);
+
 
 #endif

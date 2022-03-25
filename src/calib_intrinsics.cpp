@@ -279,7 +279,7 @@ int calibrateHandInEye(
     return 1;
 };
 
-int performEyeHandCalib (
+int performEIHCalib (
     const std::vector<std::vector<double>>& gripper2base_set,
     const std::vector<std::vector<double>>& target2camera_set,
     std::string rotation_order,
@@ -375,13 +375,9 @@ std::vector<double> EIHVerify(
         cv::Vec3d rot (target2camera[i][3], target2camera[i][4], target2camera[i][5]);
         cv::Mat rot_mat = cv::Mat(3, 3, CV_64FC1, cv::Scalar::all(0));
         cv::Rodrigues(rot, rot_mat);
-        std::cout << "The rotation mat for " << i << " is \n";
-        std::cout << rot_mat << std::endl;
         cv::Mat homo;
         RT2Homo(rot_mat, trans_mat, homo);
         homo_target2camera.push_back(homo);
-        std::cout << "target 2 camera: " << i << std::endl;
-        std::cout << homo << std::endl;
     }
 
     // calculate the pose of the object in world coordinates here
@@ -400,4 +396,107 @@ std::vector<double> EIHVerify(
     return std::vector<double>();
 };
 
+
+int performETHCalib(
+    const std::vector<std::vector<double>>& gripper2base_set,
+    const std::vector<std::vector<double>>& target2camera_set,
+    std::string rotation_order,
+    cv::Mat& R_cam2gripper,
+    cv::Mat& t_cam2gripper
+) {
+    std::vector<cv::Mat> base2gripper_rot;
+    std::vector<cv::Mat> base2gripper_trans;
+    std::vector<cv::Mat> target2camera_rot;
+    std::vector<cv::Mat> target2camera_trans;
+
+    for (int i = 0; i < gripper2base_set.size(); i++) {
+        // get the rotation matrix and the translation matrix
+        cv::Vec3d rot(
+            gripper2base_set[i][3],
+            gripper2base_set[i][4],
+            gripper2base_set[i][5]);
+        cv::Mat rot_mat = eulerAnglesToRotationMatrix(rot, rotation_order); 
+        base2gripper_rot.push_back(rot_mat.t());
+
+        cv::Mat trans_mat = (cv::Mat_<double>(3, 1) << gripper2base_set[i][0], gripper2base_set[i][1], gripper2base_set[i][2]);
+        base2gripper_trans.push_back(-rot_mat.t() * trans_mat);
+        std::cout << "The translation of base to gripper " << i << std::endl;
+        std::cout << -rot_mat.t() * trans_mat << std::endl;
+    }
+
+
+    for (int i = 0; i < target2camera_set.size(); i++) {
+        // get the rotation matrix
+        cv::Vec3f rot(
+            target2camera_set[i][3],
+            target2camera_set[i][4],
+            target2camera_set[i][5]
+        );
+        cv::Mat rot_mat;
+        cv::Rodrigues(rot, rot_mat);
+        cv::Mat trans_mat = (cv::Mat_<double>(3, 1) << target2camera_set[i][0], target2camera_set[i][1], target2camera_set[i][2]);
+        target2camera_rot.push_back(rot_mat);
+        target2camera_trans.push_back(trans_mat);
+    }
+
+    cv::calibrateHandEye(
+        base2gripper_rot, 
+        base2gripper_trans, 
+        target2camera_rot, 
+        target2camera_trans, 
+        R_cam2gripper, 
+        t_cam2gripper, 
+        cv::CALIB_HAND_EYE_TSAI
+    );
+    
+    return 0;
+}
+
+std::vector<double> ETHVerify(
+    const std::vector<std::vector<double>>& gripper2base,
+    const std::vector<std::vector<double>>& target2camera,
+    const cv::Mat& R_camera2gripper,
+    const cv::Mat& t_camera2gripper,
+    std::string rotation_order
+) {
+    /* Transform the gripper to base into homogeneous matrix */
+    std::vector<cv::Mat> homo_target2camera;
+    std::vector<cv::Mat> homo_base2gripper;
+    cv::Mat homo_camera2gripper;
+
+    for (int i = 0; i < gripper2base.size(); i++) {
+        // get the rotation matrix and the translation matrix
+        cv::Vec3d rot(
+            gripper2base[i][3],
+            gripper2base[i][4],
+            gripper2base[i][5]);
+        cv::Mat rot_mat = eulerAnglesToRotationMatrix(rot, rotation_order); 
+        cv::Mat trans_mat = -rot_mat.t() *(cv::Mat_<double>(3, 1) << gripper2base[i][0], gripper2base[i][1], gripper2base[i][2]);
+        cv::Mat homo;
+        RT2Homo(rot_mat.t(), trans_mat, homo);
+        homo_base2gripper.push_back(homo);
+    }
+
+    RT2Homo(R_camera2gripper, t_camera2gripper, homo_camera2gripper
+    );
+
+    /* Transform from trans + rot vec to homo matrix */
+    for (int i = 0; i < target2camera.size(); i++) {
+        cv::Mat trans_mat = (cv::Mat_<double>(3, 1) << target2camera[i][0], target2camera[i][1], target2camera[i][2]);
+        cv::Vec3d rot (target2camera[i][3], target2camera[i][4], target2camera[i][5]);
+        cv::Mat rot_mat = cv::Mat(3, 3, CV_64FC1, cv::Scalar::all(0));
+        cv::Rodrigues(rot, rot_mat);
+        cv::Mat homo;
+        RT2Homo(rot_mat, trans_mat, homo);
+        homo_target2camera.push_back(homo);
+    }
+    
+    for (int i = 0; i < target2camera.size(); i++) {
+        printf("-------------%d------------\n", i);
+        cv::Mat pose = homo_base2gripper[i] * homo_camera2gripper * homo_target2camera[i];
+    }
+
+    return std::vector<double>();
+
+};
 

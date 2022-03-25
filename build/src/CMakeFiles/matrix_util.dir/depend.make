@@ -86,7 +86,6 @@ src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/ope
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/ml/ml.inl.hpp
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/objdetect.hpp
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp
-src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/objdetect/face.hpp
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/opencv.hpp
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/opencv_modules.hpp
 src/CMakeFiles/matrix_util.dir/matrix_util.cpp.o: /usr/local/include/opencv4/opencv2/photo.hpp

@@ -1,4 +1,4 @@
-# Install script for directory: /home/ws/spark/hand-eye2/src
+# Install script for directory: /home/ws/spark-projects/fruit_picker_2022/test/hand-eye/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -52,9 +52,7 @@ void RT2Homo(const cv::Mat& R,const cv::Mat& T, cv::Mat& homo)
 										T.at<double>(2,0),
 										1);
 	cv::hconcat(R1, T1, HomoMtr);		//矩阵拼接, hconcat stands for horizontal concatentation
-	std::cout << HomoMtr << std::endl;
 	homo = HomoMtr;
-	std::cout << homo << std::endl;
 }
 
 
