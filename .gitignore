@@ -1,6 +1,8 @@
 /bin/
 /build/**
 build/**
+/build/
+build/
 /lib/
 /bin/**
 **/bin

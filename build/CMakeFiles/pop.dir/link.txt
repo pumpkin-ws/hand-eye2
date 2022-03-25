@@ -1,1 +1,1 @@
-/bin/g++-9  -g  -rdynamic CMakeFiles/pop.dir/pop_ideas.cpp.o  -o ../bin/pop   -L/home/ws/spark-projects/fruit_picker_2022/test/hand-eye/lib 
+/bin/x86_64-linux-gnu-g++-9  -g  -rdynamic CMakeFiles/pop.dir/pop_ideas.cpp.o  -o ../bin/pop   -L/home/ws/spark/hand-eye2/lib 

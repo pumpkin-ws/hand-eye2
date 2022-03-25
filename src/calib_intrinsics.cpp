@@ -451,7 +451,6 @@ std::vector<double> ETHVerify(
     }
 
     for (int i = 0; i < target2camera.size(); i++) {
-        printf("-------------%d------------\n", i);
         cv::Mat pose = homo_base2gripper[i] * homo_camera2gripper * homo_target2camera[i];
     }
 
